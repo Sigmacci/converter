@@ -1,0 +1,36 @@
+<div class="container" style="margin-top: 5%;">
+    <div class="card col-8 mx-auto ">
+        <h1 class="text-center mt-3">Convert your currency</h1>
+        <form #convertForm="ngForm">
+            <div class="d-flex">
+                <div class="item container ms-5">
+                    <label class=" text-light">Convert from</label>
+                    <select class="form-select" name="convertFrom" [(ngModel)]="model.convertFrom" style="width: 200px;">
+                        <option *ngFor="let rate of table?.rates" [value]="rate.code">{{rate.code}}</option>
+                    </select>
+                </div>
+                <div class="item container">
+                    <button class="btn btn-dark ms-5 mt-3" (click)="swap()">
+                        Swap
+                    </button>
+                </div>
+                <div class="item container">
+                    <label class=" text-light">Convert to</label>
+                    <select class="form-select me-5" name="convertTo" [(ngModel)]="model.convertTo" style="width: 200px;">
+                        <option *ngFor="let rate of table?.rates" [value]="rate.code">{{rate.code}}</option>
+                    </select>
+                </div>
+                <div class="break"></div>
+            </div>
+            <div class="container mt-5">
+                <input name="money" type="number" [(ngModel)]="model.money" class="ms-5 form-control" style="width: 655px;" placeholder="1.00 {{model.convertFrom}}">
+            </div>
+            <div class="container mt-5" >
+                <input name="converted" type="number" [(ngModel)]="model.converted" class="ms-5 form-control" style="width: 655px;" placeholder="1.00 {{model.convertTo}}">
+            </div>
+            <div class="container mt-5">
+                <button class="btn btn-dark ms-5" type="submit" style="width: 655px;" (click)="convert()">Convert</button>
+            </div>
+        </form>
+    </div>
+</div>
