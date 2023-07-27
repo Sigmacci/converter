@@ -8,7 +8,7 @@ import { CurrencyService } from '../_services/currency.service';
   selector: 'app-converter',
   templateUrl: './converter.component.html',
   styleUrls: ['./converter.component.css']
-});
+})
 export class ConverterComponent implements OnInit {
 
   model: any = {};
