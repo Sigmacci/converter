@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { ConverterComponent } from './converter/converter.component';
 import { FormsModule } from '@angular/forms';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    ConverterComponent
+    ConverterComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
