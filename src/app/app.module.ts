@@ -8,7 +8,9 @@ import { NavComponent } from './nav/nav.component';
 import { ConverterComponent } from './converter/converter.component';
 import { FormsModule } from '@angular/forms';
 import { ChartComponent } from './chart/chart.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CanvasJSAngularChartsModule
+    CanvasJSAngularChartsModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
