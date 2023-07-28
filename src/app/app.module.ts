@@ -8,6 +8,7 @@ import { NavComponent } from './nav/nav.component';
 import { ConverterComponent } from './converter/converter.component';
 import { FormsModule } from '@angular/forms';
 import { ChartComponent } from './chart/chart.component';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ChartComponent } from './chart/chart.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CanvasJSAngularChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

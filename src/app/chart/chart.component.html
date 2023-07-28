@@ -1,11 +1,12 @@
 <div class="card bg-primary col-12 text-light">
-    <table class="table table-hover">
+    <table class="table table-hover text-center align-middle">
         <thead>
             <tr class="table-primary">
                 <th scope="col">Currency</th>
                 <th scope="col">Code</th>
                 <th scope="col">Value in PLN</th>
                 <th scope="col">Increase / Decrease</th>
+                <th scope="col">Chart</th>
             </tr>
         </thead>
         <tbody>
@@ -15,6 +16,7 @@
                 <td>{{rate.mid}}</td>
                 <td *ngIf="compare(rate) > 0" class="text-success">+{{compare(rate).toFixed(2)}}% <i class="fa fa-arrow-up"></i></td>
                 <td *ngIf="compare(rate) < 0" class="text-danger">{{compare(rate).toFixed(2)}}% <i class="fa fa-arrow-down"></i></td>
+                <td><a href="" class="myClass" style="cursor: pointer;"><canvasjs-chart [options]="chartOptions(rate.code)" [styles]="{width: '300px', height:'100px'}"></canvasjs-chart></a></td>
             </tr>
         </tbody>
     </table>

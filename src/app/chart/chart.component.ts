@@ -15,6 +15,7 @@ export class ChartComponent implements OnInit {
   postfix = environment.param;
   table: Table | undefined;
   tableToCompare: Table | undefined;
+  tables: Table[] | undefined;
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +34,7 @@ export class ChartComponent implements OnInit {
           i++;
         }
         this.tableToCompare = newResponse[i - 1];
-        console.log(this.tableToCompare);
+        this.tables = newResponse;
       }
     })
   }
@@ -42,4 +43,34 @@ export class ChartComponent implements OnInit {
     const previousRate = this.tableToCompare?.rates.find(x => x.code === currentRate.code);
     return (currentRate.mid - previousRate?.mid!) / previousRate?.mid! * 100;
   }
-}
+
+  chartOptions(code: string) {
+    let dataOptions = [];
+    for (let table of this.tables!) {
+      dataOptions.push({ x: new Date(table?.effectiveDate!), y: table?.rates.find(r => r.code === code)?.mid, color: "rgba(225,150,150,0)" });
+      console.log(table?.rates.find(r => r.code === code)?.mid);
+    }
+    return {
+      backgroundColor: "rgba(225,150,150,0)",
+      axisX: {
+        lineThickness: 0,
+        valueFormatString: ' ',
+        tickLength: 0,
+        labelFormatter: ""
+      },
+      axisY: {
+        lineThickness: 0,
+        valueFormatString: ' ',
+        gridThickness: 0,
+        tickLength: 0,
+        labelFormatter: ""
+      },
+      data: [{
+          type: "line",
+          lineColor: "rgb(102, 255, 51)",
+          dataPointColor: "green",
+          dataPoints: dataOptions
+        }]
+      }
+    }
+  }
